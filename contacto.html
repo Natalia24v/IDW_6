@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - IDW S.A</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <header>
@@ -15,13 +16,14 @@
                 <li><a href="./contacto.html">Contacto</a></li>
             </ul>
         </nav>
+        <div class="linea-divisoria"></div>
     </header>
 
     <main>
         <section id="contacto">
-            <h2>Formulario de Contacto</h2>
+            <h2 class="h2contacto">Formulario de Contacto</h2>
             <form>
-                <div>
+                <div class="divForm">
                     <label for="nombre">Nombre:</label><br>
                     <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
                 </div>
@@ -36,12 +38,12 @@
                     <input type="tel" id="telefono" name="telefono" placeholder="(Código de área) Número">
                 </div>
                 <br>
-                <div>
+                <div class="div-celda">
                     <label for="mensaje">Mensaje:</label><br>
                     <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escriba su mensaje aquí..." required></textarea>
                 </div>
                 <br>
-                <div>
+                <div class="div-button">
                     <button type="submit">Enviar</button>
                     <button type="reset">Limpiar</button>
                 </div>
