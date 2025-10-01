@@ -171,6 +171,8 @@ form {
     margin: 0 auto;
     max-width: 500px;
     width: 100%;
+    padding: 50px 500px;
+    margin-left: 10px;
 }
 
 label {
