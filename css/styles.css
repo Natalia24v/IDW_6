@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0%;
+    color: black;
+}
+
+header {
+    background-color: lightblue;
+    color: white;
+    padding: 20px 0 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}   
+
+header h1{
+    margin-bottom: 0 0  10px 0;
+    font-size: 3rem;
+
+}
+
+nav ul {
+    list-style: none;
+    margin: 0 0 10px 0;
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+    gap: 20px;
+
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.3s, color 0.3s;
+
+}
+
+nav ul a:hover {
+     text-decoration: underline;
+    color: aqua;
+
+}
+
+/*cuerpo del sitio*/
+main{
+    max-width: 950px;
+    margin: 10px auto 0 auto;
+    padding: 0 15px;
+}
+
+section {
+    background: #dfeb77;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+   
+section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: black;
+    border-bottom: 3px solid rgb(16, 35, 204);
+    display: inline-block;
+    padding-bottom: 5px;
+}  
+
+.obraSocial{     /*esto hice */
+    display:  flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+.obraSocial li {
+    background: #007bb5;
+    border: 1px solid #002b3f;
+    border-radius: 5px;
+    color: #f4f4f4;
+    font-weight: 400;
+    padding: 6px 12px;
+}
+
+.catalogo {
+    background: none;
+    padding: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0px;
+ 
+}
+.catalogo-profesionales{       /*coloca el catalaogo en forma horizontal*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);          /*3 columnas de igual tamaño x cada fila*/
+    gap: 25px;                                     /*espacio entre filas y columnas*/
+    max-width: 1000px;
+    padding: 20px 0;                                   
+}
+.catalogo-profesionales div {
+    background: #7a8bc7;
+    border: 1px solid #5e565a;
+    border-radius: 8px;
+    padding: 15px 22px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.catalogo-profesionales h3{  /*nombre y apellido y especialdad remarcado con negro*/
+    font-size: 1.2em;
+    margin-top: 0;
+    color: rgb(27, 24, 24);
+}
+
+
+
+
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+.divProfesionales {
+    display: flex;
+    flex-direction: column;
+    padding: 90px 100px 100px 350px;
+}
+
+.divProfesionalesTexto {
+    padding: 25px;
+}
+
+
+    
+
+
+nav ul li a {
+    color: black;
+    font-weight: bold;
+}
+
+h2 {
+    color: black;
+}
+.h2contacto {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0 ;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+label {
+    color: darkred;
+}
+input {
+    border: 1px solid rgb(139, 0, 0);
+    background-color: #ffff;
+}
+
+textarea {
+    border: 1px solid rgb(139, 0, 0);
+    background-color: #ffff;
+}
+
+.div-button{
+    display: flex;
+}
+
+button {
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+
+
+/* institucional */
+
+.institucional {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.institucional-seccion h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: darkred;
+    border-bottom: 3px solid goldenrod;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.institucional-seccion p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+footer {
+    background: #df9e9e;
+    padding: 18px 0;     /*Espacio interno de arriba y abajo de 18px, a los lados 0*/
+    text-align: center;
+    background-color: rgb(58, 20, 226);
+    color: white;
+    font-size: 0.95em;
+    margin-top: 40px;
+}
