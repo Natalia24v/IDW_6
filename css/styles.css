@@ -35,23 +35,11 @@ nav ul {
 nav ul li {
     display: inline-block;
 }
-nav ul a {
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-    transition: text-decoration 0.3s, color 0.3s;
 
-}
 
-nav ul a:hover {
-     text-decoration: underline;
-    color: aqua;
-
-}
 
 /*cuerpo del sitio*/
 main{
-    max-width: 950px;
     margin: 10px auto 0 auto;
     padding: 0 15px;
 }
@@ -207,16 +195,12 @@ nav {
 .row h2 {
     /* Aseguramos que el título se vea bien y limpio */
     color: #343a40; /* Gris oscuro */
-    border-bottom: 3px solid darkred; /* Línea de su color de acento */
+    border-bottom: 3px solid rgb(0, 0, 0); /* Línea de su color de acento */
     display: inline-block;
     padding-bottom: 8px;
     margin-bottom: 25px !important;
 }
 
-nav ul li a {
-    color: black;
-    font-weight: bold;
-}
 
 h2 {
     color: black;
