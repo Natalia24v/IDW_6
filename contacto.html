@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - IDW S.A</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -27,10 +27,69 @@
   </nav>
 
     <main class="container my-5">
-      <div>
-        <img src="assets/img/centro-medico.jpg" class="img-fluid" alt="Banner de la página">
+      <div class="content-slider">
+        <div class="flex-container">
+            <div class="flexslider">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        
+                        <div class="carousel-item active">
+                            <img src="https://cdn.pixabay.com/photo/2015/09/09/09/46/building-931283_1280.jpg" class="d-block w-100 carousel-img-profesional" alt="...">
+                            <div class="carousel-caption d-none d-md-block caption-fondo-profesional">
+                                <h3 class="fw-bold caption-texto-blanco">Infraestructura Pensada para Usted</h3>
+                                <p>Espacios modernos y cómodos diseñados para garantizar su bienestar y tranquilidad durante cada visita.</p>
+                                <button class="btn btn-primary">Conozca la Clínica</button>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <img src="https://cdn.pixabay.com/photo/2014/12/10/20/48/laboratory-563423_1280.jpg" class="d-block w-100 carousel-img-profesional" alt="...">
+                            <div class="carousel-caption d-none d-md-block caption-fondo-profesional">
+                                <h3 class="fw-bold caption-texto-blanco">Diagnóstico de Precisión y Vanguardia</h3>
+                                <p>Contamos con la tecnología más avanzada en laboratorios para resultados rápidos y completamente confiables.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <img src="https://cdn.pixabay.com/photo/2023/10/30/12/36/hospital-8352776_1280.jpg" class="d-block w-100 carousel-img-profesional" alt="...">
+                            <div class="carousel-caption d-none d-md-block caption-fondo-profesional">
+                                <h3 class="fw-bold caption-texto-blanco">Atención Especializada 24/7</h3>
+                                <p>Nuestro compromiso es brindarle cuidado continuo con un equipo médico dedicado, listo para atender cualquier necesidad.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <img src="https://cdn.pixabay.com/photo/2017/06/15/05/04/skin-2404163_1280.jpg" class="d-block w-100 carousel-img-profesional" alt="...">
+                            <div class="carousel-caption d-none d-md-block caption-fondo-profesional">
+                                <h3 class="fw-bold caption-texto-blanco">Expertos en Salud Dermatológica</h3>
+                                <p>Cuidado avanzado para su piel con especialistas certificados que combinan estética y salud integral.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-item">
+                            <img src="https://cdn.pixabay.com/photo/2021/11/02/09/19/feet-6762754_1280.jpg" class="d-block w-100 carousel-img-profesional" alt="...">
+                            <div class="carousel-caption d-none d-md-block caption-fondo-profesional">
+                                <h3 class="fw-bold caption-texto-blanco">Movilidad y Bienestar en Cada Paso</h3>
+                                <p>Tratamientos especializados para el cuidado de sus extremidades inferiores, garantizando su calidad de vida.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-            <h2 class="text-center mb-4">Formulario de Contacto</h2>
+      <section class="contact__wrapper shadow-lg mt-n9"> 
+        <div class="row no-gutters">
+        <h2 class="text-center mb-4">Formulario de Contacto</h2>
             <form>
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre:</label><br>
@@ -54,8 +113,10 @@
                 <br>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
+      </div>
+    </section> 
     </main>
-  <footer class="bg-primary text-white text-center py-3 mt-auto">
+  <footer class="bg-dark text-white text-center py-3 mt-auto">
     <p class="mb-0">&copy; 2025 Centro Medico IDW - S.A</p>
   </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

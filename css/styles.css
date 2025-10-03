@@ -12,8 +12,6 @@ body {
 }
 
 header {
-    background-color: lightblue;
-    color: white;
     padding: 20px 0 10px 0;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
@@ -59,10 +57,10 @@ main{
 }
 
 section {
-    background: #dfeb77;
+    
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(8, 1, 114, 0.1);
     border-radius: 8px;
 }
    
@@ -70,10 +68,34 @@ section h2 {
     margin-bottom: 20px;
     font-size: 1.5em;
     color: black;
-    border-bottom: 3px solid rgb(16, 35, 204);
+    border-bottom: 3px solid rgb(0, 0, 0);
     display: inline-block;
     padding-bottom: 5px;
 }  
+
+.carousel-img-profesional {
+    max-height: 450px;  
+    object-fit: cover;
+    object-position: center; 
+    width: 100%;
+}
+
+
+.carousel-inner .carousel-item {
+    max-height: 450px; 
+    overflow: hidden; 
+}
+
+.caption-fondo-profesional {
+    background-color: rgba(0, 0, 0, 0.2); 
+    padding: 15px; 
+    border-radius: 5px; 
+}
+
+.caption-texto-blanco {
+    color: #FFFFFF !important; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
 
 .obraSocial{     /*esto hice */
     display:  flex;
@@ -123,9 +145,6 @@ section h2 {
 }
 
 
-
-
-
 h1 {
     text-align: center;
     color: black;
@@ -145,9 +164,6 @@ nav {
 .divProfesionalesTexto {
     padding: 25px;
 }
-
-
-    
 
 
 nav ul li a {
@@ -176,10 +192,10 @@ form {
 }
 
 label {
-    color: darkred;
+    color: rgb(252, 252, 252);
 }
 input {
-    border: 1px solid rgb(139, 0, 0);
+    border: 1px solid rgb(252, 252, 252);
     background-color: #ffff;
 }
 
@@ -200,8 +216,6 @@ button {
     margin: 10px;
 
 }
-
-
 
 /* institucional */
 
@@ -233,11 +247,7 @@ button {
 }
 
 footer {
-    background: #df9e9e;
     padding: 18px 0;     /*Espacio interno de arriba y abajo de 18px, a los lados 0*/
-    text-align: center;
-    background-color: rgb(58, 20, 226);
-    color: white;
     font-size: 0.95em;
     margin-top: 40px;
 }
