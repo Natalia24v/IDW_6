@@ -166,6 +166,53 @@ nav {
 }
 
 
+.card-img-top {
+  
+    height: 250px; 
+    object-fit: cover;
+    object-position: top center; 
+    border-radius: 0.25rem 0.25rem 0 0; 
+}
+
+/* 2. Estilo del Contenedor de la Tarjeta */
+.card {
+   
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid #dee2e6; /* Borde suave */
+}
+
+/* Efecto al pasar el ratón */
+.card:hover {
+    /* Mueve la tarjeta ligeramente hacia arriba */
+    transform: translateY(-5px); 
+    /* Aumenta la sombra para destacarla */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important; 
+}
+
+/* 3. Estilo del Contenido de la Tarjeta */
+.card-title {
+    color: blue; /* Usamos su color de acento para el nombre */
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    /* Color de texto más sutil para la especialidad */
+    color: #6c757d; 
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* 4. Título General de la Sección */
+.row h2 {
+    /* Aseguramos que el título se vea bien y limpio */
+    color: #343a40; /* Gris oscuro */
+    border-bottom: 3px solid darkred; /* Línea de su color de acento */
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 25px !important;
+}
+
 nav ul li a {
     color: black;
     font-weight: bold;
@@ -174,33 +221,68 @@ nav ul li a {
 h2 {
     color: black;
 }
+
 .h2contacto {
     display: flex;
     justify-content: space-around;
     padding: 50px 0 ;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 500px;
-    width: 100%;
-    padding: 50px 500px;
-    margin-left: 10px;
+/* Nuevo Bloque de CSS para Formulario */
+
+
+.contact__wrapper {
+    max-width: 550px; 
+    margin: 40px auto 20px auto; 
+    padding: 30px; 
+    background-color: #000; /* Fondo gris claro */
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-label {
-    color: rgb(252, 252, 252);
+/* Aseguramos que el form dentro de este wrapper ocupe todo el ancho disponible */
+.contact__wrapper form {
+    /* Reseteamos los paddings y márgenes problemáticos */
+    padding: 0;
+    margin: 0;
+    max-width: none; 
 }
+
+/* 2. Título (H2) dentro del Formulario */
+.contact__wrapper h2 {
+    color: #343a40; /* Gris oscuro para el encabezado */
+    font-weight: 600;
+    text-align: center; /* Asegura el centrado */
+    border-bottom: 2px solid #000; /* Línea de su color de acento */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* 3. Etiquetas (Labels) */
+.form-label {
+    /* Color oscuro para que sean visibles sobre el fondo claro */
+    color: #e6eaee; 
+    font-weight: 500;
+}
+
+/* 4. Estilo del Botón (Usando su color darkred) */
+.contact__wrapper .btn-primary {
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    display: block; 
+    margin: 20px auto 0 auto;
+}
+
+
 input {
     border: 1px solid rgb(252, 252, 252);
     background-color: #ffff;
 }
 
 textarea {
-    border: 1px solid rgb(139, 0, 0);
+    border: 1px solid rgb(151, 150, 150);
     background-color: #ffff;
 }
 
@@ -225,24 +307,23 @@ button {
     padding: 20px 30px;
     background-color: #f9f9f9;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .institucional-seccion h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: darkred;
-    border-bottom: 3px solid goldenrod;
-    display: inline-block;
-    padding-bottom: 5px;
+    font-size: 2rem;
+    margin: 50px 20px 30px;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    display: flex;
+    padding: 10px;
 }
 
 .institucional-seccion p {
     font-size: 1.3rem;
     line-height: 1.8;
     color: #333;
-    margin-bottom: 15px;
+    margin: 20px;
     text-align: justify;
 }
 
