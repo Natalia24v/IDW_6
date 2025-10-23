@@ -97,34 +97,7 @@
     <p>En Clínica IDW, sabemos que la excelencia médica va de la mano con la empatía y el trato humano. Nuestro equipo de profesionales no solo está compuesto por especialistas altamente cualificados y en constante actualización, sino por personas dedicadas a ofrecerle una experiencia de atención inigualable.</p>
     <p>Cada uno de nuestros doctores, doctoras y personal de salud combina una rigurosa preparación académica con un profundo compromiso ético. Esto significa que usted recibirá diagnósticos precisos, tratamientos basados en la última evidencia científica y, sobre todo, la tranquilidad de saber que está siendo atendido por expertos que se preocupan genuinamente por su bienestar.</p>
     <p>Conozca a los profesionales que hacen de Clínica IDW un referente de salud, donde la calidad médica es nuestra promesa y el cuidado humano es nuestro sello distintivo.</p>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <img src="https://wallpapercave.com/wp/wp2655111.jpg" class="card-img-top" alt="Dr. Juan Pérez">
-          <div class="card-body text-center">
-            <h5 class="card-title">Dr. Juan Pérez</h5>
-            <p class="card-text">Medicina General - Cardiología</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <img src="https://elminnesotadehoy.com/wp-content/uploads/2015/01/Latinadoctor.jpg" class="card-img-top" alt="Dra. Ana Martínez">
-          <div class="card-body text-center">
-            <h5 class="card-title">Dra. Ana Martínez</h5>
-            <p class="card-text">Ginecología - Obstetricia</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-          <img src="https://img.freepik.com/premium-photo/portrait-male-medical-doctor-around-40-years-old_1000823-15809.jpg" class="card-img-top" alt="Dr. Juan Carlos Pérez">
-          <div class="card-body text-center  bg-blue-800">
-            <h5 class="card-title">Dr. Juan Carlos Pérez</h5>
-            <p class="card-text">Dermatología Adultos</p>
-          </div>
-        </div>
-      </div>
+    <div class="row g-4" id="medicosContenedor">
     </div>
   </main>
 
@@ -133,5 +106,30 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const contenedor = document.getElementById("medicosContenedor");
+      const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
+
+      contenedor.innerHTML = ""; //limpia si hay existentes.
+
+      medicos.forEach(m => {
+          contenedor.innerHTML += `
+            <div class="col-md-4">
+              <div class="card h-100 shadow-sm">
+                <img src="${m.imagen || 'https://via.placeholder.com/150'}" class="card-img-top" alt="${m.nombre} ${m.apellido}">
+                <div class="card-body text-center">
+                  <h5 class="card-title">${m.nombre} ${m.apellido}</h5>
+                  <p class="card-text">${m.especialidad}</p>
+                  <p class="card-text"><strong>Obra Social:</strong> ${m.obraSocial}</p>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }); 
+  </script>
+
 </body>
 </html>
