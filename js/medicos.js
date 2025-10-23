@@ -109,7 +109,8 @@ function onSubmitForm(e) {
     matricula: form.matricula.value.trim(),
     email: form.email.value.trim(),
     telefono: form.telefono.value.trim(),
-    obraSocial: form.obraSocial.value
+    obraSocial: form.obraSocial.value,
+    imagen: form.imagen.value.trim() || "https://via.placeholder.com/150"
   };
 
   if (mode === "create") {
