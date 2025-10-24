@@ -1,10 +1,8 @@
-import { INITIAL_MEDICOS } from "./data.js";
-
 const STORAGE_KEY = "medicos";
 
 function initStorage() {
   if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_MEDICOS));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([])); 
   }
 }
 
@@ -18,6 +16,7 @@ function saveMedicos(arr) {
 
 function renderTable() {
   const tbody = document.querySelector("#medicosTable tbody");
+  if (!tbody) return; 
   const medicos = getMedicos();
   tbody.innerHTML = "";
   medicos.forEach((m) => {
@@ -46,6 +45,7 @@ function renderTable() {
 function openForm(mode = "create", id = null) {
   const modalTitle = document.getElementById("medicoModalLabel");
   const form = document.getElementById("medicoForm");
+  if (!form) return;
   form.reset();
   form.dataset.mode = mode;
   delete form.dataset.id;
@@ -64,6 +64,7 @@ function openForm(mode = "create", id = null) {
     form.email.value = m.email;
     form.telefono.value = m.telefono;
     form.obraSocial.value = m.obraSocial;
+    form.imagen.value = m.imagen;
     form.dataset.id = m.id;
   }
 
@@ -76,7 +77,9 @@ function viewMedico(id) {
   const m = medicos.find(x => String(x.id) === String(id));
   if (!m) return;
   const body = document.getElementById("viewBody");
+  if (!body) return;
   body.innerHTML = `
+    <img src="${m.imagen || 'https://via.placeholder.com/150'}" class="img-fluid mb-3" alt="${m.nombre} ${m.apellido}">
     <p><strong>Nombre:</strong> ${m.nombre} ${m.apellido}</p>
     <p><strong>Especialidad:</strong> ${m.especialidad}</p>
     <p><strong>Matrícula:</strong> ${m.matricula}</p>
@@ -122,13 +125,18 @@ function onSubmitForm(e) {
 
   saveMedicos(medicos);
   renderTable();
-  bootstrap.Modal.getInstance(document.getElementById("medicoModal")).hide();
+  const modalEl = document.getElementById("medicoModal");
+  const modalInstance = bootstrap.Modal.getInstance(modalEl);
+  if (modalInstance) modalInstance.hide();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   initStorage();
   renderTable();
 
-  document.getElementById("btnNuevo").addEventListener("click", () => openForm("create"));
-  document.getElementById("medicoForm").addEventListener("submit", onSubmitForm);
+  const btnNuevo = document.getElementById("btnNuevo");
+  if (btnNuevo) btnNuevo.addEventListener("click", () => openForm("create"));
+
+  const form = document.getElementById("medicoForm");
+  if (form) form.addEventListener("submit", onSubmitForm);
 });
