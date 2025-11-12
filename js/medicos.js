@@ -1,3 +1,5 @@
+import { INITIAL_MEDICOS } from "../datos.js";
+
 const STORAGE_KEY = "medicos";
 
 function initStorage() {
