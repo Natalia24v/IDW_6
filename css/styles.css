@@ -85,7 +85,7 @@ section h2 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-.obraSocial{     /*esto hice */
+.obraSocial{
     display:  flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -103,12 +103,11 @@ section h2 {
 }
 
 .catalogo {
-    background: none;
-    padding: 0;
-    margin-bottom: 0;
-    box-shadow: none;
-    border-radius: 0px;
- 
+    background: #ffffff;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(8, 1, 114, 0.1);
+    border-radius: 8px;
 }
 .catalogo-profesionales{       /*coloca el catalaogo en forma horizontal*/
     display: grid;
@@ -162,7 +161,7 @@ nav {
     border-radius: 0.25rem 0.25rem 0 0; 
 }
 
-/* 2. Estilo del Contenedor de la Tarjeta */
+/* Estilo del Contenedor de la Tarjeta */
 .card {
    
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;

@@ -16,24 +16,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link" href="institucional.html">Institucional</a></li>
-          <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="../institucional.html">Institucional</a></li>
+          <li class="nav-item"><a class="nav-link" href="../catalogo.html">Catálogo</a></li>
           <li class="nav-item"><a class="nav-link active" href="medicos.html">Médicos</a></li>
-          <li class="nav-item"><button id="logoutBtn" class="btn btn-outline-light ms-2">Cerrar sesión</button></li>
-
+          <li class="nav-item"><a class="nav-link" href="admin-users.html">Usuarios</a></li>
+          <li class="nav-item"><a id="logoutBtn" class="nav-link" href="#">Salir</a></li>
         </ul>
       </div>
     </div>
   </nav>
-
-  <main class="container my-5">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h2 class="mb-0">Gestión de Médicos</h2>
-      <button id="btnNuevo" class="btn btn-success">Nuevo Médico</button>
-    </div>
-
     <div class="table-responsive">
       <table id="medicosTable" class="table table-striped table-bordered align-middle">
         <thead class="table-dark">
@@ -110,8 +103,6 @@
       </div>
     </div>
   </div>
-
-  
   <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -121,7 +112,6 @@
       </div>
     </div>
   </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="../datos.js"></script>
   <script type="module" src="../js/medicos.js"></script>
