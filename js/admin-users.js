@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     sessionStorage.removeItem('accessToken');
     sessionStorage.removeItem('user');
-    location.href = 'login.html';
+    // Detecta si estamos en admin/ y ajusta la ruta
+    const loginPath = location.pathname.includes('/admin/') ? '../login.html' : './login.html';
+    location.href = loginPath;
   });
 });
