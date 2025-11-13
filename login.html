@@ -34,7 +34,7 @@
     const form = document.getElementById('loginForm');
     const err = document.getElementById('loginError');
     const params = new URLSearchParams(location.search);
-    const returnUrl = params.get('returnUrl') || 'medicos.html';
+    const returnUrl = params.get('returnUrl') || 'admin/medicos.html';
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();

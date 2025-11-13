@@ -28,14 +28,14 @@ export function isAuthenticated() {
 export function requireAuth() {
   if (!isAuthenticated()) {
     const returnUrl = encodeURIComponent(location.pathname + location.search);
-    location.href = `login.html?returnUrl=${returnUrl}`;
+    location.href = `/login.html?returnUrl=${returnUrl}`;
   }
 }
 
 export function logout() {
   sessionStorage.removeItem(TOKEN_KEY);
   sessionStorage.removeItem(USER_KEY);
-  location.href = 'login.html';
+  location.href = '/login.html';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
