@@ -19,6 +19,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="medicos.html">Médicos</a></li>
           <li class="nav-item"><a class="nav-link" href="especialidades.html">Especialidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="turnos.html">Turnos</a></li>
           <li class="nav-item"><a class="nav-link active" href="obras_sociales.html">Obras Sociales</a></li>
           <li class="nav-item"><button id="logoutBtn" class="btn btn-outline-light ms-2">Cerrar sesión</button></li>
         </ul>
@@ -102,28 +103,10 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import { requireAuth } from '../js/auth.js';
+    requireAuth();
+  </script>
   <script type="module" src="../js/obras_sociales.js"></script>
-
-   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const token = sessionStorage.getItem("accessToken");
-
-    if (!token) {
-      // Guarda la página actual antes de redirigir al login
-      sessionStorage.setItem("redirectTo", window.location.pathname);
-      window.location.href = "../login.html";
-      return;
-    }
-
-    // Botón de cerrar sesión
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", () => {
-        sessionStorage.removeItem("accessToken");
-        window.location.href = "../login.html";
-      });
-    }
-  });
-</script>
 </body>
 </html>
