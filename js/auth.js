@@ -1,7 +1,6 @@
 const LOGIN_URL = 'https://dummyjson.com/auth/login';
 const TOKEN_KEY = 'accessToken';
 const USER_KEY = 'user';
-
 export async function loginUsuario(username, password) {
   const res = await fetch(LOGIN_URL, {
     method: 'POST',
@@ -20,24 +19,27 @@ export async function loginUsuario(username, password) {
   }));
   return data;
 }
-
 export function isAuthenticated() {
   return !!sessionStorage.getItem(TOKEN_KEY);
 }
-
+function getLoginPath() {
+  // Detecta si estamos en la carpeta admin/ y ajusta la ruta
+  const path = location.pathname;
+  return path.includes('/admin/') ? '../login.html' : './login.html';
+}
 export function requireAuth() {
   if (!isAuthenticated()) {
-    const returnUrl = encodeURIComponent(location.pathname + location.search);
-    location.href = `/login.html?returnUrl=${returnUrl}`;
+    const currentUrl = location.pathname + location.search;
+    sessionStorage.setItem('returnAfterLogin', currentUrl);
+    const returnUrl = encodeURIComponent(currentUrl);
+    location.href = `${getLoginPath()}?returnUrl=${returnUrl}`;
   }
 }
-
 export function logout() {
   sessionStorage.removeItem(TOKEN_KEY);
   sessionStorage.removeItem(USER_KEY);
-  location.href = '/login.html';
+  location.href = getLoginPath();
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('logoutBtn');
   if (btn) btn.addEventListener('click', (e) => { e.preventDefault(); logout(); });

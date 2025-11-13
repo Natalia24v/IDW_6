@@ -28,14 +28,13 @@
       </form>
     </div>
   </main>
-
   <script type="module">
     import { loginUsuario } from './js/auth.js';
     const form = document.getElementById('loginForm');
     const err = document.getElementById('loginError');
     const params = new URLSearchParams(location.search);
-    const returnUrl = params.get('returnUrl') || 'admin/medicos.html';
-
+    const returnUrl = sessionStorage.getItem('returnAfterLogin') || params.get('returnUrl') || 'admin/medicos.html';
+    sessionStorage.removeItem('returnAfterLogin');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       err.style.display = 'none';
@@ -50,7 +49,6 @@
       }
     });
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

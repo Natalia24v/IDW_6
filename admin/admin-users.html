@@ -23,7 +23,6 @@
       </div>
     </div>
   </nav>
-
   <main class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h2 class="mb-0">Usuarios registrados (DummyJSON)</h2>
@@ -31,7 +30,6 @@
         <button id="btnRefresh" class="btn btn-outline-secondary btn-sm">Actualizar</button>
       </div>
     </div>
-
     <div class="table-responsive">
       <table id="usuariosTable" class="table table-striped table-bordered align-middle">
         <thead class="table-dark">
@@ -49,12 +47,10 @@
     </div>
     <div id="adminUsersError" class="text-danger mt-2" style="display:none"></div>
   </main>
-
   <script type="module">
     import { requireAuth } from '../js/auth.js';
     requireAuth();
   </script>
-
   <script type="module" src="../js/admin-users.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
