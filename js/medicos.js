@@ -3,7 +3,7 @@ const STORAGE_KEY = "medicos";
 function initStorage() {
   let data = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (!Array.isArray(data) || data.length === 0 || !data[0].nombre) {
-    console.warn("⚠️ Datos de médicos inválidos o vacíos. Se restauran los iniciales.");
+    console.warn("Datos de médicos inválidos o vacíos. Se restauran los iniciales.");
     localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_MEDICOS));
   }
 }
