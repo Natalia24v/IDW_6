@@ -1,10 +1,13 @@
-import { INITIAL_MEDICOS } from "../datos.js";
+import { INITIAL_MEDICOS } from "./datos.js";
 
 const STORAGE_KEY = "medicos";
 
 function initStorage() {
-  if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([])); 
+  let data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+  if (!Array.isArray(data) || data.length === 0 || !data[0].nombre) {
+    console.warn("⚠️ Datos de médicos inválidos o vacíos. Se restauran los iniciales.");
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_MEDICOS));
   }
 }
 
@@ -18,9 +21,10 @@ function saveMedicos(arr) {
 
 function renderTable() {
   const tbody = document.querySelector("#medicosTable tbody");
-  if (!tbody) return; 
+  if (!tbody) return;
   const medicos = getMedicos();
   tbody.innerHTML = "";
+
   medicos.forEach((m) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -38,7 +42,6 @@ function renderTable() {
     tbody.appendChild(tr);
   });
 
-  // listeners
   document.querySelectorAll(".view-btn").forEach(b => b.addEventListener("click", (e) => viewMedico(e.target.dataset.id)));
   document.querySelectorAll(".edit-btn").forEach(b => b.addEventListener("click", (e) => openForm("edit", e.target.dataset.id)));
   document.querySelectorAll(".delete-btn").forEach(b => b.addEventListener("click", (e) => deleteMedico(e.target.dataset.id)));
@@ -94,7 +97,7 @@ function viewMedico(id) {
 }
 
 function deleteMedico(id) {
-  if (!confirm("Eliminar este médico?")) return;
+  if (!confirm("¿Eliminar este médico?")) return;
   const medicos = getMedicos().filter(m => String(m.id) !== String(id));
   saveMedicos(medicos);
   renderTable();
@@ -142,3 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("medicoForm");
   if (form) form.addEventListener("submit", onSubmitForm);
 });
+
+
+// Exporto para el catálogo público
+export async function obtenerMedicos() {
+  initStorage();
+  return getMedicos();
+}
