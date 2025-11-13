@@ -43,8 +43,7 @@
       </table>
     </div>
   </main>
-
-  <!-- (create / edit) -->
+<!--  (crear y editar)  -->
   <div class="modal fade" id="medicoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
@@ -115,15 +114,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="../datos.js"></script>
   <script type="module" src="../js/medicos.js"></script>
-  
-  
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const token = sessionStorage.getItem("accessToken");
       if (!token) {
         window.location.href = "../login.html";
       }
-
   // Botón de cerrar sesión
     const logoutBtn = document.getElementById("logoutBtn");
     if (logoutBtn) {
@@ -134,7 +130,5 @@
     }
   });
 </script>
-
-
 </body>
 </html>

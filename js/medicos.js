@@ -1,30 +1,23 @@
 import { INITIAL_MEDICOS } from "./datos.js";
-
 const STORAGE_KEY = "medicos";
-
 function initStorage() {
   let data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-
   if (!Array.isArray(data) || data.length === 0 || !data[0].nombre) {
     console.warn("⚠️ Datos de médicos inválidos o vacíos. Se restauran los iniciales.");
     localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_MEDICOS));
   }
 }
-
 function getMedicos() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
-
 function saveMedicos(arr) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
 }
-
 function renderTable() {
   const tbody = document.querySelector("#medicosTable tbody");
   if (!tbody) return;
   const medicos = getMedicos();
   tbody.innerHTML = "";
-
   medicos.forEach((m) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -41,12 +34,10 @@ function renderTable() {
     `;
     tbody.appendChild(tr);
   });
-
   document.querySelectorAll(".view-btn").forEach(b => b.addEventListener("click", (e) => viewMedico(e.target.dataset.id)));
   document.querySelectorAll(".edit-btn").forEach(b => b.addEventListener("click", (e) => openForm("edit", e.target.dataset.id)));
   document.querySelectorAll(".delete-btn").forEach(b => b.addEventListener("click", (e) => deleteMedico(e.target.dataset.id)));
 }
-
 function openForm(mode = "create", id = null) {
   const modalTitle = document.getElementById("medicoModalLabel");
   const form = document.getElementById("medicoForm");
@@ -54,7 +45,6 @@ function openForm(mode = "create", id = null) {
   form.reset();
   form.dataset.mode = mode;
   delete form.dataset.id;
-
   if (mode === "create") {
     modalTitle.textContent = "Nuevo Médico";
   } else {
@@ -72,11 +62,9 @@ function openForm(mode = "create", id = null) {
     form.imagen.value = m.imagen;
     form.dataset.id = m.id;
   }
-
   const modal = new bootstrap.Modal(document.getElementById("medicoModal"));
   modal.show();
 }
-
 function viewMedico(id) {
   const medicos = getMedicos();
   const m = medicos.find(x => String(x.id) === String(id));
@@ -95,20 +83,17 @@ function viewMedico(id) {
   const modal = new bootstrap.Modal(document.getElementById("viewModal"));
   modal.show();
 }
-
 function deleteMedico(id) {
   if (!confirm("¿Eliminar este médico?")) return;
   const medicos = getMedicos().filter(m => String(m.id) !== String(id));
   saveMedicos(medicos);
   renderTable();
 }
-
 function onSubmitForm(e) {
   e.preventDefault();
   const form = e.target;
   const mode = form.dataset.mode;
   const medicos = getMedicos();
-
   const record = {
     id: mode === "create" ? Date.now() : Number(form.dataset.id),
     nombre: form.nombre.value.trim(),
@@ -120,33 +105,26 @@ function onSubmitForm(e) {
     obraSocial: form.obraSocial.value,
     imagen: form.imagen.value.trim() || "https://via.placeholder.com/150"
   };
-
   if (mode === "create") {
     medicos.push(record);
   } else {
     const idx = medicos.findIndex(m => m.id === record.id);
     if (idx !== -1) medicos[idx] = record;
   }
-
   saveMedicos(medicos);
   renderTable();
   const modalEl = document.getElementById("medicoModal");
   const modalInstance = bootstrap.Modal.getInstance(modalEl);
   if (modalInstance) modalInstance.hide();
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   initStorage();
   renderTable();
-
   const btnNuevo = document.getElementById("btnNuevo");
   if (btnNuevo) btnNuevo.addEventListener("click", () => openForm("create"));
-
   const form = document.getElementById("medicoForm");
   if (form) form.addEventListener("submit", onSubmitForm);
 });
-
-
 // Exporto para el catálogo público
 export async function obtenerMedicos() {
   initStorage();

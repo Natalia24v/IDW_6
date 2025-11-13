@@ -1,30 +1,22 @@
 import { INITIAL_MEDICOS } from "./datos.js";
-
 const STORAGE_KEY = "medicos";
-
 function initStorage() {
   let data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-
   if (!Array.isArray(data) || data.length === 0 || !data[0].nombre) {
     console.warn("⚠️ Datos de médicos inválidos o vacíos. Se restauran los iniciales.");
     localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_MEDICOS));
     data = INITIAL_MEDICOS;
   }
-
   return data;
 }
-
 function getMedicos() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
-
 function renderCatalogo() {
   const contenedor = document.getElementById("catalogoMedicos");
   if (!contenedor) return;
-
   const medicos = getMedicos();
   contenedor.innerHTML = "";
-
   medicos.forEach((m) => {
     const card = document.createElement("div");
     card.className = "col-md-4 mb-4";
@@ -42,7 +34,6 @@ function renderCatalogo() {
     contenedor.appendChild(card);
   });
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   initStorage();
   renderCatalogo();

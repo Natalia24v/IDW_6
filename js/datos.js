@@ -22,19 +22,16 @@ export const INITIAL_MEDICOS = [
     imagen: "https://randomuser.me/api/portraits/men/32.jpg"
   }
 ];
-
 export const INITIAL_TURNOS = [
   { id: 1, paciente: "Juan Pérez", medico: "Laura Fernández", especialidad: "Cardiología", fecha: "2025-11-15", hora: "10:00", observaciones: "Control anual" },
   { id: 2, paciente: "Ana Gómez", medico: "Martín Pérez", especialidad: "Pediatría", fecha: "2025-11-16", hora: "11:00", observaciones: "" }
 ];
-
 export const INITIAL_OBRAS = [
   { id: 1, nombre: "OSDE" },
   { id: 2, nombre: "Swiss Medical" },
   { id: 3, nombre: "PAMI" },
   { id: 4, nombre: "IOMA" }
 ];
-
 export const INITIAL_ESPECIALIDADES = [
   "Medicina General",
   "Cardiología",

@@ -2,7 +2,6 @@ const STORAGE_KEY = "obrasSociales";
 
 function initStorage() {
   let data = JSON.parse(localStorage.getItem(STORAGE_KEY));
-
   if (!Array.isArray(data) || data.length === 0) {
     console.warn("Cargando...");
     const iniciales = [
@@ -13,21 +12,17 @@ function initStorage() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(iniciales));
   }
 }
-
 function getObras() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
-
 function saveObras(arr) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
 }
-
 function renderTable() {
   const tbody = document.querySelector("#obrasTable tbody");
   if (!tbody) return;
   const obras = getObras();
   tbody.innerHTML = "";
-
   obras.forEach((o) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -43,12 +38,10 @@ function renderTable() {
     `;
     tbody.appendChild(tr);
   });
-
   document.querySelectorAll(".view-btn").forEach(b => b.addEventListener("click", (e) => viewObra(e.target.dataset.id)));
   document.querySelectorAll(".edit-btn").forEach(b => b.addEventListener("click", (e) => openForm("edit", e.target.dataset.id)));
   document.querySelectorAll(".delete-btn").forEach(b => b.addEventListener("click", (e) => deleteObra(e.target.dataset.id)));
 }
-
 function openForm(mode = "create", id = null) {
   const modalTitle = document.getElementById("obraModalLabel");
   const form = document.getElementById("obraForm");
@@ -56,7 +49,6 @@ function openForm(mode = "create", id = null) {
   form.reset();
   form.dataset.mode = mode;
   delete form.dataset.id;
-
   if (mode === "create") {
     modalTitle.textContent = "Nueva Obra Social";
   } else {
@@ -70,11 +62,9 @@ function openForm(mode = "create", id = null) {
     form.cobertura.value = o.cobertura;
     form.dataset.id = o.id;
   }
-
   const modal = new bootstrap.Modal(document.getElementById("obraModal"));
   modal.show();
 }
-
 function viewObra(id) {
   const obras = getObras();
   const o = obras.find(x => String(x.id) === String(id));
@@ -90,20 +80,17 @@ function viewObra(id) {
   const modal = new bootstrap.Modal(document.getElementById("viewModal"));
   modal.show();
 }
-
 function deleteObra(id) {
   if (!confirm("¿Eliminar esta obra social?")) return;
   const obras = getObras().filter(o => String(o.id) !== String(id));
   saveObras(obras);
   renderTable();
 }
-
 function onSubmitForm(e) {
   e.preventDefault();
   const form = e.target;
   const mode = form.dataset.mode;
   const obras = getObras();
-
   const record = {
     id: mode === "create" ? Date.now() : Number(form.dataset.id),
     nombre: form.nombre.value.trim(),
@@ -111,28 +98,23 @@ function onSubmitForm(e) {
     email: form.email.value.trim(),
     cobertura: form.cobertura.value.trim()
   };
-
   if (mode === "create") {
     obras.push(record);
   } else {
     const idx = obras.findIndex(o => o.id === record.id);
     if (idx !== -1) obras[idx] = record;
   }
-
   saveObras(obras);
   renderTable();
   const modalEl = document.getElementById("obraModal");
   const modalInstance = bootstrap.Modal.getInstance(modalEl);
   if (modalInstance) modalInstance.hide();
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   initStorage();
   renderTable();
-
   const btnNueva = document.getElementById("btnNueva");
   if (btnNueva) btnNueva.addEventListener("click", () => openForm("create"));
-
   const form = document.getElementById("obraForm");
   if (form) form.addEventListener("submit", onSubmitForm);
 });

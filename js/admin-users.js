@@ -1,12 +1,10 @@
 const API_USERS = 'https://dummyjson.com/users?limit=100';
-
 async function fetchUsers() {
   const res = await fetch(API_USERS);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
   return data.users || [];
 }
-
 function sanitize(user) {
   return {
     id: user.id,
@@ -18,7 +16,6 @@ function sanitize(user) {
     city: (user.address && user.address.city) ? user.address.city : ''
   };
 }
-
 function renderTable(users) {
   const tbody = document.querySelector('#usuariosTable tbody');
   tbody.innerHTML = '';
@@ -36,7 +33,6 @@ function renderTable(users) {
     tbody.appendChild(tr);
   });
 }
-
 function escapeHtml(str = '') {
   return String(str)
     .replaceAll('&', '&amp;')
@@ -45,7 +41,6 @@ function escapeHtml(str = '') {
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#39;');
 }
-
 async function loadAndRender() {
   const errEl = document.getElementById('adminUsersError');
   errEl.style.display = 'none';
@@ -59,11 +54,9 @@ async function loadAndRender() {
     errEl.style.display = 'block';
   }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   loadAndRender();
   document.getElementById('btnRefresh').addEventListener('click', loadAndRender);
-
   const logoutBtn = document.getElementById('logoutBtn');
   if (logoutBtn) logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
