@@ -34,7 +34,8 @@
     const form = document.getElementById('loginForm');
     const err = document.getElementById('loginError');
     const params = new URLSearchParams(location.search);
-    const returnUrl = params.get('returnUrl') || 'admin/medicos.html';
+    const returnUrl = sessionStorage.getItem('returnAfterLogin') || params.get('returnUrl') || 'admin/medicos.html';
+    sessionStorage.removeItem('returnAfterLogin');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
