@@ -29,7 +29,9 @@ function getLoginPath() {
 }
 export function requireAuth() {
   if (!isAuthenticated()) {
-    const returnUrl = encodeURIComponent(location.pathname + location.search);
+    const currentUrl = location.pathname + location.search;
+    sessionStorage.setItem('returnAfterLogin', currentUrl);
+    const returnUrl = encodeURIComponent(currentUrl);
     location.href = `${getLoginPath()}?returnUrl=${returnUrl}`;
   }
 }
